@@ -1,0 +1,2 @@
+model_checkpoint_path: "best_text_cnn_model"
+all_model_checkpoint_paths: "best_text_cnn_model"

@@ -1,0 +1,172 @@
+https://tynbl.github.io/docs/python-xxxy-3/08-05.html
+https://www.kaggle.com/weiyunchen/nlp123
+
+热门、最高评分、最新三个系类前500部电影影片
+经过去重、去空后
+RangeIndex: 197900 entries, 0 to 197899
+Data columns (total 2 columns):
+score      197900 non-null object
+content    197900 non-null object
+dtypes: object(2)
+memory usage: 3.0+ MB
+0    0.040051
+1    0.112936
+4    0.238605
+2    0.281885
+3    0.326523
+
+对每条评论只保留中文和英文，其中中文繁体字转为简体字，英文字母全部小写
+同时对每条评论使用jieba分词，去掉停用词
+1、去掉词数小于5的行：
+Int64Index: 147713 entries, 0 to 197898
+Data columns (total 2 columns):
+score      147713 non-null object
+content    147713 non-null object
+dtypes: object(2)
+memory usage: 3.4+ MB
+0    0.035251
+1    0.105915
+4    0.244535
+2    0.275047
+3    0.339252
+
+train: 0.5827440950804874
+val: 0.5898458066942459
+test: 0.586785810993772
+
+>>> ave_sen_len:11.475786904702204
+>>> max_sen_len:869
+>>> vocab_size:145346
+
+2、去掉词数小于10的行：
+Int64Index: 103305 entries, 0 to 197896
+Data columns (total 2 columns):
+score      103305 non-null object
+content    103305 non-null object
+memory usage: 2.4+ MB
+0    0.031092
+1    0.100489
+4    0.253386
+2    0.266386
+3    0.348647
+
+train: 0.6021439839380468
+val: 0.601419660141966
+test: 0.6016842512825477
+
+>>> ave_sen_len:14.80290047325398
+>>> max_sen_len:869
+>>> vocab_size:138365
+
+3、[5,100]
+Int64Index: 147273 entries, 0 to 197898
+Data columns (total 2 columns):        
+score      147273 non-null object      
+content    147273 non-null object      
+
+memory usage: 3.4+ MB
+0    0.035261
+1    0.105770
+4    0.244634
+2    0.275108
+3    0.339227
+
+train: 0.5845502556794366
+val: 0.5764617125612976
+test: 0.5849402498642042
+
+>>> ave_sen_len:11.310776259535585
+>>> max_sen_len:100
+>>> vocab_size:143757
+
+[5,80]
+Data columns (total 2 columns):
+score      145795 non-null object
+content    145795 non-null object
+dtypes: object(2)
+memory usage: 3.3+ MB
+0    0.035269
+1    0.105456
+4    0.245077
+2    0.275256
+3    0.338942
+Name: score, dtype: float64
+train: 0.5825832183109921
+val: 0.5951836610272824
+test: 0.58559670781893
+加载word_dict===========================
+>>> ave_sen_len:10.926625625566292
+>>> max_sen_len:80
+>>> vocab_size:140581
+
+[5,75]
+Int64Index: 145318 entries, 0 to 197898
+Data columns (total 2 columns):
+score      145318 non-null object
+content    145318 non-null object
+
+memory usage: 3.3+ MB
+0    0.035226
+1    0.105355
+4    0.245365
+2    0.275190
+3    0.338864
+
+train: 0.5833382891416823
+val: 0.5939291994800826
+test: 0.5827140104596752
+
+>>> ave_sen_len:10.82224931397453
+>>> max_sen_len:75
+>>> vocab_size:139457
+
+[5,50]
+Int64Index: 140387 entries, 0 to 197898
+Data columns (total 2 columns):
+score      140387 non-null object
+content    140387 non-null object
+memory usage: 3.2+ MB
+0    0.035139
+1    0.104682
+4    0.248264
+2    0.273800
+3    0.338115
+
+train: 0.5868018608250596
+val: 0.5842500989315393
+test: 0.5848707172875561
+
+>>> ave_sen_len:10.041138656090332
+>>> max_sen_len:50
+>>> vocab_size:131577
+
+朴素贝叶斯
+交叉验证的准确率：0.7271159676604346
+Precision, Recall and F1-Score=====
+              precision    recall  f1-score   support
+
+         neg       0.69      0.67      0.68     17021
+         pos       0.76      0.78      0.77     22559
+
+    accuracy                           0.73     39580
+   macro avg       0.73      0.72      0.72     39580
+weighted avg       0.73      0.73      0.73     39580
+
+Confusion Matrix...
+[[11342  5679]
+ [ 4979 17580]]
+
+Python自带情感分析方法结果:
+Precision, Recall and F1-Score=====
+              precision    recall  f1-score   support
+
+         neg       0.59      0.24      0.34     17021
+         pos       0.60      0.88      0.71     22559
+
+    accuracy                           0.60     39580
+   macro avg       0.60      0.56      0.53     39580
+weighted avg       0.60      0.60      0.55     39580
+
+Confusion Matrix...
+[[ 4020 13001]
+ [ 2811 19748]]
